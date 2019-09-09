@@ -15,3 +15,15 @@ npm install
 ./bin/elasticdump --input=http://localhost:9200 --input-index=myidenx/mytype --output=/logs/demo_product.txt --type=data --sourceOnly=true --limit=100 --overwrite=true --ignore-errors=true --searchBody='{"query": {"bool": {"must_not": [{"exists": {"field": "fieldname"}}]}}, "_source": ["fieldname1","fieldname2"]}'
 
 ```
+## Package app
+
+Add config into package.json
+```bash
+"pkg": {
+    "assets": ["lib/**/*.js","lib/*.js","lib/*.txt","transforms/*.js","bin/*"]
+  }
+```
+Run command 
+```bash
+pkg . --out-path release
+```
